@@ -1,6 +1,6 @@
 <?php
 
-use App\Http\Controllers\DiscographyController;
+use App\Http\Controllers\AlbumController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -14,4 +14,4 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', [DiscographyController::class, 'index']);
+Route::get('/', [AlbumController::class, 'index']);
