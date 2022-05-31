@@ -1,0 +1,9 @@
+.form-album{
+    display: flex;
+    flex-direction: column;
+    width: 70%;
+}
+
+.form-album .btn-cad{
+    width: 100%;
+}

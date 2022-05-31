@@ -6,7 +6,7 @@ use App\Interfaces\AlbumsRepositoryInterface;
 use App\Repositories\AlbumsRepository;
 use Illuminate\Support\ServiceProvider;
 
-class AlbumsRepositoryProvider extends ServiceProvider
+class AlbumRepositoryProvider extends ServiceProvider
 {
     /**
      * Register services.

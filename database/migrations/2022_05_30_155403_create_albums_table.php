@@ -17,6 +17,7 @@ class CreateAlbumsTable extends Migration
             $table->id();
             $table->string('name');
             $table->date('launch');
+            $table->string('record_company');
             $table->timestamps();
         });
     }

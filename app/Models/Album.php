@@ -12,6 +12,7 @@ class Album extends Model
     protected $fillable = [
         'name',
         'launch',
+        'record_company',
     ];
 
     public function traks()

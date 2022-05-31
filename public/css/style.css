@@ -5,22 +5,32 @@
 }
 
 html, body{
-    background-image: url('../../public/img/background.png');
+    /* background-image: url('../../public/img/background.png'); */
+    background-color: #fff;
+}
+
+a{
+    text-decoration: none;
 }
 
 .content{
     display: flex;
     flex-direction: column;
     justify-content:center;
+    width: 80%;
 }
 
 .search{
-    width: 80%;
+    width: 100%;
 }
 
 .btn-search{
     border-radius: 20px;
     padding: 5px 20px;
+}
+
+.ml-10{
+    margin-left: 5px;
 }
 
 .ml-10{

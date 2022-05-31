@@ -17,7 +17,7 @@ class CreateTracksTable extends Migration
             $table->id();
             $table->foreignId('album_id')->constrained('albums');
             $table->integer('number');
-            $table->string('name');
+            $table->string('title');
             $table->decimal('duration', 6, 2, true);
             $table->timestamps();
         });
