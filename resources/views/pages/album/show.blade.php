@@ -9,9 +9,13 @@
         <h4>Album: {{ $album->name }}, {{ date('Y', strtotime($album->launch)) }}</h4>
     </div>
     <div class="">
-        <a href="" class="btn btn-primary" data-bs-toggle="tooltip" data-toggle="tooltip" title="Adicionar nova Faixa">
+        <button class="btn btn-primary" data-toggle="modal" data-bs-toggle="modal" data-bs-target="#modal-form-trak" data-bs-toggle="tooltip" data-toggle="tooltip" title="Adicionar nova Faixa">
             <i class="fa-solid fa-plus"></i>
-        </a>
+        </button>
+        @php
+            $title = "Teste"
+        @endphp
+        <x-modals.form-trak :title="$title"/>
     </div>
 </div>
 
@@ -33,14 +37,12 @@
             <tbody class="text-center">
                 <tr>
                     <th scope="row">{{ $trak->number }}</th>
-                    <td>{{ $trak->name }}</td>
+                    <td>{{ $trak->title }}</td>
                     <td>{{ $trak->duration }}</td>
                     <td>
-                        <form action="">
-                            <button type="submit" class="btn btn-danger" ata-bs-toggle="tooltip" data-bs-placement="top" title="Excluir Faixa">
-                                <i class="fa-solid fa-trash-can"></i>
-                            </button>
-                        </form>
+                        <button class="btn btn-danger" ata-bs-toggle="tooltip" data-bs-placement="top" title="Excluir Faixa">
+                            <i class="fa-solid fa-trash-can"></i>
+                        </button>
                     </td>
                 </tr>
             </tbody>

@@ -18,11 +18,12 @@ class AlbumsSeeder extends Seeder
         Album::create([
             'name' => 'Album',
             'launch' => date($format = 'Y-m-d', strtotime('2000-05-30')),
+            'record_company' => 'Globo',
         ])->each(function ($album, $n = 1) {
             Track::create([
                 'album_id' => $album->id,
                 'number' => $n+1,
-                'name' => 'Faixa teste',
+                'title' => 'Faixa teste',
                 'duration' => 1.5,
             ]);
         });
@@ -30,11 +31,12 @@ class AlbumsSeeder extends Seeder
         Album::create([
             'name' => 'Album',
             'launch' => date($format = 'Y-m-d', strtotime('2001-10-30')),
+            'record_company' => 'Som Mucic',
         ])->each(function ($album, $n = 1) {
             Track::create([
                 'album_id' => $album->id,
                 'number' => $n+1,
-                'name' => 'Faixa teste 2',
+                'title' => 'Faixa teste 2',
                 'duration' => 2,
             ]);
         });

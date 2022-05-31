@@ -46,13 +46,13 @@ class AlbumController extends Controller
         $request->validated();
         
         $this->albumRepository->createAlbum($request->all());
-        return redirect()->route('album.index')->with('success', 'Álbum cadastrado com sucesso!');
+        return redirect()->route('index')->with('success', 'Álbum cadastrado com sucesso!');
     }
 
     public function delete($id)
     {
         $this->albumRepository->deleteAlbum($id);
        
-        return redirect()->route('album.index')->with('success', 'Álbum excluido com sucesso!');
+        return redirect()->route('index')->with('success', 'Álbum excluido com sucesso!');
     }
 }

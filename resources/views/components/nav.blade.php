@@ -1,6 +1,6 @@
 <nav class="navbar navbar-expand-lg">
     <div class="container-fluid d-flex align-items-center">
-        <a class="navbar-brand" href="{{ route('album.index') }}">
+        <a class="navbar-brand" href="{{ route('index') }}">
             <img src="{{ asset('img/logo.png') }}" alt="">
         </a>
         

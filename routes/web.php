@@ -14,8 +14,9 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+Route::get('/', [AlbumController::class, 'index'])->name('index');
+
 Route::name('album.')->prefix('album')->group(function() {
-    Route::get('/', [AlbumController::class, 'index'])->name('index');
     Route::post('/', [AlbumController::class, 'store'])->name('store');
     Route::get('/cadastrar', [AlbumController::class, 'create'])->name('create');
     Route::get('/search', [AlbumController::class, 'showByName'])->name('search');

@@ -48,21 +48,20 @@
                             </div>
                         </a>
                         
-                        <div class="ml-10">
-                            <form action="{{ route('album.delete', $album->id) }}" method="POST">
-                                @csrf
-                                @method('delete')
-                                <button type="submit" class="btn btn-danger ml-5" 
-                                data-bs-toggle="tooltip"
-                                data-bs-placement="top"
-                                title="Excluir Álbum">
-                                    <i class="fa-solid fa-trash-can"></i>
-                                </button>
-                            </form>
+                        <div class="ml-10">  
+                            <button type="button" class="btn btn-danger" data-toggle="modal" data-bs-toggle="modal" data-bs-target="#modal-delete" data-bs-toggle="tooltip"
+                            data-bs-placement="top"
+                            title="Excluir Álbum">
+                                <i class="fa-solid fa-trash-can"></i>
+                            </button>
+                            @php
+                                $message = "Excluir o Álbum $album->name"
+                            @endphp
+                            <x-modals.confirm-action :message="$message" :id="$album->id"/>
                         </div>
                     </div>
 
-                    @if($album->trak)
+                    @if(count($album->traks) > 0)
                         <table class="table table-borderless">
                             <thead class="text-center">
                             <tr>
@@ -114,5 +113,9 @@
             @endif
         </div>
     </div>
+
+    <!-- Modal -->
+
+    
 
 @stop
