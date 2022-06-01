@@ -4,7 +4,10 @@
 
 @section('content')
 
-<div class="form-create-track mx-auto w-70">
+<section class="form-create-track mt-5 mb-3 mx-auto w-70">
+    <header class="text-center mb-5">
+        <h2>Cadastro de Faixa Musical</h2>
+    </header>
 
     @include('includes.message')
 
@@ -16,5 +19,5 @@
         </button>
     </form>
 
-</div>
+</section>
 @stop

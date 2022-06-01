@@ -3,9 +3,6 @@
     padding: 0;
     outline: 0;
 }
-body {
-    /* height: 100vh; */
-}
 
 a{
     text-decoration: none;
@@ -18,18 +15,14 @@ input{
     color: #000;
 }
 
-.content{
-    display: flex;
-    flex-direction: column;
-    justify-content:center;
-    width: 80%;
-    min-height: 100vh;
-    margin-bottom: 50px;
-}
-
 .main{
     background-color: #fff;
     padding: 15px;
+    border-radius: 0 0 20px 20px;
+}
+
+.btn{
+    border-radius: 10px !important;
 }
 
 .btn-search{
@@ -46,5 +39,9 @@ input{
 }
 
 .w-70{
+    width: 70%;
+}
+
+.w-80{
     width: 70%;
 }

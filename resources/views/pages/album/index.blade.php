@@ -4,11 +4,11 @@
 
 @section('content')
 
-    <div class="search mx-auto w-100">
+    <section class="search mx-auto w-100">
 
         @include('includes.message')
 
-        <div class="search-header d-flex w-100 mb-3">
+        <header class="search-header d-flex w-100 mb-3">
             <div class="">
                 <h3>Pesquise por um Álbum</h3>
             </div>
@@ -18,7 +18,7 @@
                     <i class="fa-solid fa-plus"></i>
                 </a>
             </div>
-        </div>
+        </header>
 
         <form action="{{ route('album.search') }}">
             <div class="row">
@@ -32,11 +32,11 @@
             </div>
         </form>
 
-        <div class="list-albums mt-5">
+        <section class="list-albums mt-5">
             @foreach ($albums as $album)
 
                 <div class="album mb-5">
-                    <div class="header-album d-flex align-items-center justify-content-between">
+                    <div class="d-flex align-items-center justify-content-between">
                         <a href="{{ route('album.show', $album->id) }}" class="text-dark">
                             <div class="album-details">
                                 <h5>
@@ -106,6 +106,6 @@
                 {{ $albums->links() }}
             </div>
             @endif
-        </div>
-    </div>
+        </section>
+    </section>
 @stop

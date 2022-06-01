@@ -16,18 +16,16 @@
              background-image: url('{{ asset('img/background.png') }}');
              background-position: center top;
              background-repeat: no-repeat;
-             background-size: 100% 100%;
+             background-size: 100% auto;
          }
      </style>
 </head>
-<body>
+<body class="container-fluid mt-3 w-80 vh-100">
     
-    <div class="container-fluid mt-3 content">
-        <x-nav/>
-        <div class="main">
-            @yield('content')
-        </div>
-    </div>
+    <x-nav/>
+    <main class="main min-vh-100">
+        @yield('content')
+    </main>
 
 </body>
 </html>
