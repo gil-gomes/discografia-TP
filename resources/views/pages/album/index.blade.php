@@ -81,9 +81,9 @@
                             <div class="tracks">
                                 <tbody class="text-center">
                                 <tr>
-                                    <th scope="row">{{ $trak->number }}</th>
-                                    <td>{{ $trak->title }}</td>
-                                    <td>{{ $trak->duration }}</td>
+                                    <th scope="row">{{ $track->number }}</th>
+                                    <td>{{ $track->title }}</td>
+                                    <td>{{ $track->duration }}</td>
                                 </tr>
                                 </tbody>
                             </div>
