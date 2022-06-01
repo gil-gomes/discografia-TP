@@ -17,7 +17,6 @@ class TraksRepository implements TrakRepositoryInterface
      */
     public function getTrakById(int $trak_id)
     {
-    
 
     }
 

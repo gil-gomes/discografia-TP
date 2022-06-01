@@ -15,7 +15,9 @@
         @php
             $title = "Teste"
         @endphp
-        <x-modals.form-trak :title="$title"/>
+        <x-modals.form-trak title="Teste">
+            <button type="button" class="btn btn-primary">Salvar</button>
+        </x-modals.form-trak>
     </div>
 </div>
 

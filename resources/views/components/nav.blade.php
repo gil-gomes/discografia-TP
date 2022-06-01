@@ -10,5 +10,4 @@
             <span class="navbar-toggler-icon"></span>
         </button>
     </div>
-    <hr>
 </nav>

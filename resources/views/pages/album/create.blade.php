@@ -37,18 +37,6 @@
             value="{{ old('record_company') }}">
         </div>
 
-        {{-- <h2>Faixas</h1>
-
-        <div class="mb-3">
-            <label for="title_trak" class="form-label">Título da Faixa</label>
-            <input type="text" name="title_trak" class="form-control" placeholder="Título da Faixa">
-        </div>
-
-        <div class="mb-5">
-            <label for="duration" class="form-label">Duração</label>
-            <input type="number" name="duration" class="form-control" placeholder="Duração da Faixa">
-        </div> --}}
-
         <button type="submit" class="btn btn-primary mb-3 btn-cad">Cadastrar</button>
     </form>
 </div>

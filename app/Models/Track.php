@@ -15,4 +15,11 @@ class Track extends Model
         'title',
         'duration',
     ];
+
+    public function getDurationAttribute($value): string
+    {
+        $duration = strval($value);
+        strlen($duration) < 5 ? $duration = "0$duration" : null;
+        return str_replace(".", ":", $duration);
+    }
 }

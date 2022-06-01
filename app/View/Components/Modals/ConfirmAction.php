@@ -8,11 +8,6 @@ class ConfirmAction extends Component
 {
 
     /**
-     * @var int
-     */
-    public $id;
-
-    /**
      * @var string
      */
     public $message;
@@ -22,10 +17,9 @@ class ConfirmAction extends Component
      *
      * @return void
      */
-    public function __construct($id = null, $message)
+    public function __construct($message)
     {
         $this->message = $message;
-        $this->id = $id;
     }
 
     /**

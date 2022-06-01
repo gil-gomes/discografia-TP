@@ -22,11 +22,11 @@
 
         <form action="{{ route('album.search') }}">
             <div class="row">
-                <div class="col-11 col-md-10">
+                <div class="col-8 col-md-9">
                     <input type="text" class="form-control" name="search" placeholder="Buscar">
                 </div>
 
-                <div class="col-1 col-md-2">
+                <div class="col-4 col-md-3">
                     <button type="submit" class="btn btn-primary btn-search w-100">Procurar</button>
                 </div>
             </div>
@@ -54,10 +54,15 @@
                             title="Excluir Álbum">
                                 <i class="fa-solid fa-trash-can"></i>
                             </button>
-                            @php
-                                $message = "Excluir o Álbum $album->name"
-                            @endphp
-                            <x-modals.confirm-action :message="$message" :id="$album->id"/>
+                            <x-modals.confirm-action message="Excluir o Álbum {{ $album->name }}">
+                                <form action="{{ route('album.delete', $album->id) }}" method="POST">
+                                    @csrf
+                                    @method('delete')
+                                    <button type="submit" class="btn btn-danger ml-5">
+                                        Confirmar
+                                    </button>
+                                </form>
+                            </x-modals.confirm-action>
                         </div>
                     </div>
 
@@ -68,7 +73,6 @@
                                 <th scope="col">Nº</th>
                                 <th scope="col">Faixa</th>
                                 <th scope="col">Duração</th>
-                                <th scope="col">Ações</th>
                             </tr>
                             </thead>
 
@@ -78,17 +82,8 @@
                                 <tbody class="text-center">
                                 <tr>
                                     <th scope="row">{{ $trak->number }}</th>
-                                    <td>{{ $trak->name }}</td>
+                                    <td>{{ $trak->title }}</td>
                                     <td>{{ $trak->duration }}</td>
-                                    <td>
-                                        <a href=""
-                                        class="btn btn-danger"
-                                        ata-bs-toggle="tooltip"
-                                        data-bs-placement="top"
-                                        title="Excluir Faixa">
-                                            <i class="fa-solid fa-trash-can"></i>
-                                        </a>
-                                    </td>
                                 </tr>
                                 </tbody>
                             </div>
@@ -113,9 +108,4 @@
             @endif
         </div>
     </div>
-
-    <!-- Modal -->
-
-    
-
 @stop

@@ -10,13 +10,7 @@
         </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
-          <form action="{{ route('album.delete', $id) }}" method="POST">
-                @csrf
-                @method('delete')
-                <button type="submit" class="btn btn-danger ml-5">
-                    Confirmar
-                </button>
-            </form>
+          {{ $slot }}
         </div>
       </div>
     </div>
