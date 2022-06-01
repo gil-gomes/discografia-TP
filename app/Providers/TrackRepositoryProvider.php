@@ -2,11 +2,11 @@
 
 namespace App\Providers;
 
-use App\Repositories\TrakRepositoryInterface;
-use App\Repositories\TraksRepository;
+use App\Interfaces\TrackRepositoryInterface;
+use App\Repositories\TracksRepository;
 use Illuminate\Support\ServiceProvider;
 
-class TrakRepositoryProvider extends ServiceProvider
+class TrackRepositoryProvider extends ServiceProvider
 {
     /**
      * Register services.
@@ -15,7 +15,7 @@ class TrakRepositoryProvider extends ServiceProvider
      */
     public function register()
     {
-        $this->app->bind(TrakRepositoryInterface::class, TraksRepository::class);
+        $this->app->bind(TrackRepositoryInterface::class, TracksRepository::class);
     }
 
     /**

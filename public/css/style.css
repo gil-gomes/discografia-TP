@@ -20,10 +20,6 @@ a{
     width: 80%;
 }
 
-.search{
-    width: 100%;
-}
-
 .btn-search{
     border-radius: 20px;
     padding: 5px 20px;
@@ -35,4 +31,8 @@ a{
 
 .ml-10{
     margin-left: 10px;
+}
+
+.w-70{
+    width: 70%;
 }

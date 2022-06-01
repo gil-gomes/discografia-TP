@@ -15,4 +15,9 @@ class Track extends Model
         'title',
         'duration',
     ];
+
+    public function album()
+    {
+        return $this->belongsTo(Album::class);
+    }
 }

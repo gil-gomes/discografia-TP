@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\AlbumController;
+use App\Http\Controllers\TrackController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -22,5 +23,10 @@ Route::name('album.')->prefix('album')->group(function() {
     Route::get('/search', [AlbumController::class, 'showByName'])->name('search');
     Route::get('/{id}', [AlbumController::class, 'show'])->name('show');
     Route::delete('/{id}', [AlbumController::class, 'delete'])->name('delete');
-});
 
+    Route::name('track.')->group(function () {
+        Route::get('/{album_id}/cadastrar-faixa', [TrackController::class, 'create'])->name('create');
+        Route::post('/{album_id}/track', [TrackController::class, 'store'])->name('store');
+    });
+    
+});

@@ -4,18 +4,9 @@
 
 @section('content')
 
-<div class="form-album mx-auto">
+<div class="form-album mx-auto w-70">
 
-    @if ($errors->any())
-        <div class="alert alert-danger alert-dismissible fade show" role="alert">
-            <ul>
-                @foreach ($errors->all() as $error)
-                    <li>{{ $error }}</li>
-                @endforeach
-            </ul>
-            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-        </div>
-    @endif
+    @include('includes.message')
 
     <form action="{{ route('album.store') }}" method="POST">
         @csrf
@@ -49,7 +40,7 @@
             <input type="number" name="duration" class="form-control" placeholder="Duração da Faixa">
         </div> --}}
 
-        <button type="submit" class="btn btn-primary mb-3 btn-cad">Cadastrar</button>
+        <button type="submit" class="btn btn-primary mb-3 w-100">Cadastrar</button>
     </form>
 </div>
 

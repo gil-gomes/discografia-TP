@@ -15,7 +15,7 @@ class Album extends Model
         'record_company',
     ];
 
-    public function traks()
+    public function tracks()
     {
         return $this->hasMany(Track::class);
     }

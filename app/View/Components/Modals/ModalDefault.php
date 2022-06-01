@@ -4,20 +4,22 @@ namespace App\View\Components\Modals;
 
 use Illuminate\View\Component;
 
-class FormTrak extends Component
+class ModalDefault extends Component
 {
     /**
      * @var string
      */
     public $title;
+    
     /**
+     * 
      * Create a new component instance.
      *
      * @return void
      */
     public function __construct($title)
     {
-        $this->$title = $title;
+        $this->title = $title;
     }
 
     /**
@@ -27,6 +29,6 @@ class FormTrak extends Component
      */
     public function render()
     {
-        return view('components.modals.form-trak');
+        return view('components.modals.modal-default');
     }
 }
