@@ -16,6 +16,11 @@ class Track extends Model
         'duration',
     ];
 
+    public function album()
+    {
+        return $this->belongsTo(Album::class);
+    }
+
     public function getDurationAttribute($value): string
     {
         $duration = strval($value);

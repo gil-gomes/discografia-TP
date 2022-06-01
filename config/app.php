@@ -175,7 +175,7 @@ return [
         App\Providers\EventServiceProvider::class,
         App\Providers\RouteServiceProvider::class,
         App\Providers\AlbumRepositoryProvider::class,
-        App\Providers\TrakRepositoryProvider::class,
+        App\Providers\TrackRepositoryProvider::class,
 
     ],
 

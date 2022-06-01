@@ -4,9 +4,9 @@
 
 @section('content')
 
-    <div class="search mx-auto">
+    <div class="search mx-auto w-100">
 
-        @include('message')
+        @include('includes.message')
 
         <div class="search-header d-flex w-100 mb-3">
             <div class="">
@@ -66,7 +66,7 @@
                         </div>
                     </div>
 
-                    @if(count($album->traks) > 0)
+                    @if(count($album->tracks) > 0)
                         <table class="table table-borderless">
                             <thead class="text-center">
                             <tr>
@@ -76,7 +76,7 @@
                             </tr>
                             </thead>
 
-                        @foreach ($album->traks as $trak)
+                        @foreach ($album->tracks as $track)
 
                             <div class="tracks">
                                 <tbody class="text-center">

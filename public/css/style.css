@@ -32,10 +32,6 @@ input{
     padding: 15px;
 }
 
-.search{
-    width: 100%;
-}
-
 .btn-search{
     border-radius: 20px;
     padding: 5px 20px;
@@ -47,4 +43,8 @@ input{
 
 .ml-10{
     margin-left: 10px;
+}
+
+.w-70{
+    width: 70%;
 }

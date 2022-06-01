@@ -3,7 +3,7 @@
 namespace App\Providers;
 
 use App\View\Components\Modals\ConfirmAction;
-use App\View\Components\Modals\FormTrak;
+use App\View\Components\Modals\ModalDefault;
 use Illuminate\Support\ServiceProvider;
 use Illuminate\Pagination\Paginator;
 use Illuminate\Support\Facades\Blade;
@@ -32,6 +32,6 @@ class AppServiceProvider extends ServiceProvider
 
         //Components
         Blade::component('confirm-action', ConfirmAction::class);
-        Blade::component('form-trak', FormTrak::class);
+        Blade::component('form-track', ModalDefault::class);
     }
 }
