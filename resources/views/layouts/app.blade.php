@@ -11,16 +11,21 @@
      <!-- Styles -->
      <link href="{{ asset('css/app.css') }}" rel="stylesheet">
      <link href="{{ asset('css/all.css') }}" rel="stylesheet">
+     <style lang="css">
+         body {
+             background-image: url('{{ asset('img/background.png') }}');
+             background-position: center top;
+             background-repeat: no-repeat;
+             background-size: 100% auto;
+         }
+     </style>
 </head>
-<body>
+<body class="container-fluid mt-3 w-80 vh-100">
+    
     <x-nav/>
-   
-    <div class="container-fluid mt-5 content">
+    <main class="main min-vh-100">
         @yield('content')
-    </div>
+    </main>
 
-    <footer>
-
-    </footer>
 </body>
 </html>

@@ -4,11 +4,11 @@
 
 @section('content')
 
-    <div class="search mx-auto w-100">
+    <section class="search mx-auto w-100">
 
         @include('includes.message')
 
-        <div class="search-header d-flex w-100 mb-3">
+        <header class="search-header d-flex w-100 mb-3">
             <div class="">
                 <h3>Pesquise por um Álbum</h3>
             </div>
@@ -18,25 +18,25 @@
                     <i class="fa-solid fa-plus"></i>
                 </a>
             </div>
-        </div>
+        </header>
 
         <form action="{{ route('album.search') }}">
             <div class="row">
-                <div class="col-11 col-md-10">
+                <div class="col-8 col-md-9">
                     <input type="text" class="form-control" name="search" placeholder="Buscar">
                 </div>
 
-                <div class="col-1 col-md-2">
+                <div class="col-4 col-md-3">
                     <button type="submit" class="btn btn-primary btn-search w-100">Procurar</button>
                 </div>
             </div>
         </form>
 
-        <div class="list-albums mt-5">
+        <section class="list-albums mt-5">
             @foreach ($albums as $album)
 
                 <div class="album mb-5">
-                    <div class="header-album d-flex align-items-center justify-content-between">
+                    <div class="d-flex align-items-center justify-content-between">
                         <a href="{{ route('album.show', $album->id) }}" class="text-dark">
                             <div class="album-details">
                                 <h5>
@@ -54,10 +54,15 @@
                             title="Excluir Álbum">
                                 <i class="fa-solid fa-trash-can"></i>
                             </button>
-                            @php
-                                $message = "Excluir o Álbum $album->name"
-                            @endphp
-                            <x-modals.confirm-action :message="$message" :id="$album->id"/>
+                            <x-modals.confirm-action message="Excluir o Álbum {{ $album->name }}">
+                                <form action="{{ route('album.delete', $album->id) }}" method="POST">
+                                    @csrf
+                                    @method('delete')
+                                    <button type="submit" class="btn btn-danger ml-5">
+                                        Confirmar
+                                    </button>
+                                </form>
+                            </x-modals.confirm-action>
                         </div>
                     </div>
 
@@ -68,7 +73,6 @@
                                 <th scope="col">Nº</th>
                                 <th scope="col">Faixa</th>
                                 <th scope="col">Duração</th>
-                                <th scope="col">Ações</th>
                             </tr>
                             </thead>
 
@@ -80,15 +84,6 @@
                                     <th scope="row">{{ $track->number }}</th>
                                     <td>{{ $track->title }}</td>
                                     <td>{{ $track->duration }}</td>
-                                    <td>
-                                        <a href=""
-                                        class="btn btn-danger"
-                                        ata-bs-toggle="tooltip"
-                                        data-bs-placement="top"
-                                        title="Excluir Faixa">
-                                            <i class="fa-solid fa-trash-can"></i>
-                                        </a>
-                                    </td>
                                 </tr>
                                 </tbody>
                             </div>
@@ -111,11 +106,6 @@
                 {{ $albums->links() }}
             </div>
             @endif
-        </div>
-    </div>
-
-    <!-- Modal -->
-
-    
-
+        </section>
+    </section>
 @stop

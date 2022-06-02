@@ -21,4 +21,10 @@ class Track extends Model
     {
         return $this->belongsTo(Album::class);
     }
+
+    public function getDurationAttribute($value): string
+    {
+        $duration = strval($value);
+        return str_replace(".", ":", $duration);
+    }
 }

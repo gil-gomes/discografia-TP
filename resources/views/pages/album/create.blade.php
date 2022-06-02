@@ -4,13 +4,15 @@
 
 @section('content')
 
-<div class="form-album mx-auto w-70">
+<section class="form-album mt-5 mb-3 mx-auto w-70">
 
     @include('includes.message')
 
     <form action="{{ route('album.store') }}" method="POST">
         @csrf
-        <h2>Álbum</h1>
+        <header class="text-center mb-5">
+            <h2>Cadastro de Álbum</h2>
+        </header>
 
         <div class="mb-3">
             <label for="name" class="form-label">Nome</label>
@@ -28,20 +30,8 @@
             value="{{ old('record_company') }}">
         </div>
 
-        {{-- <h2>Faixas</h1>
-
-        <div class="mb-3">
-            <label for="title_trak" class="form-label">Título da Faixa</label>
-            <input type="text" name="title_trak" class="form-control" placeholder="Título da Faixa">
-        </div>
-
-        <div class="mb-5">
-            <label for="duration" class="form-label">Duração</label>
-            <input type="number" name="duration" class="form-control" placeholder="Duração da Faixa">
-        </div> --}}
-
         <button type="submit" class="btn btn-primary mb-3 w-100">Cadastrar</button>
     </form>
-</div>
+</section>
 
 @stop
