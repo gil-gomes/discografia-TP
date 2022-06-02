@@ -37,16 +37,16 @@
 
                 <div class="album mb-5">
                     <div class="d-flex align-items-center justify-content-between">
-                        <a href="{{ route('album.show', $album->id) }}" class="text-dark">
-                            <div class="album-details">
-                                <h5>
-                                    <strong>
-                                        Album: {{ $album->name }}, {{ date('Y', strtotime($album->launch)) }}
-                                    </strong>
-                                </h5>
-                                <span>Gravadora: {{ $album->record_company }}</span>
-                            </div>
-                        </a>
+                        <div class="album-details">
+                            <a href="{{ route('album.show', $album->id) }}" class="text-dark">
+                                    <h5>
+                                        <strong>
+                                            Album: {{ $album->name }}, {{ date('Y', strtotime($album->launch)) }}
+                                        </strong>
+                                    </h5>
+                            </a>
+                            <span>Gravadora: {{ $album->record_company }}</span>
+                        </div>
                         
                         <div class="ml-10">  
                             <button type="button" class="btn btn-danger" data-toggle="modal" data-bs-toggle="modal" data-bs-target="#modal-delete" data-bs-toggle="tooltip"

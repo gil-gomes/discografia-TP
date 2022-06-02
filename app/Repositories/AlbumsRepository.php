@@ -22,8 +22,7 @@ class AlbumsRepository implements AlbumsRepositoryInterface
      */
     public function getAllAlbums()
     {
-        return $this->model->with('tracks')
-        ->paginate(5);
+        return $this->model->with('tracks')->paginate(3);
     }
 
     /**
