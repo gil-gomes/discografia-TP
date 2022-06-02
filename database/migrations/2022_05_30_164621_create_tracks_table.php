@@ -19,6 +19,7 @@ class CreateTracksTable extends Migration
             $table->integer('number');
             $table->string('title');
             $table->decimal('duration', 6, 2, true);
+            $table->string('file_name');
             $table->timestamps();
         });
     }

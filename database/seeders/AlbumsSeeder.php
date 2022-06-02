@@ -25,6 +25,7 @@ class AlbumsSeeder extends Seeder
                 'number' => $n+1,
                 'title' => 'Faixa teste',
                 'duration' => 1.5,
+                'file_name' => 'testando',
             ]);
         });
 
@@ -38,6 +39,7 @@ class AlbumsSeeder extends Seeder
                 'number' => $n+1,
                 'title' => 'Faixa teste 2',
                 'duration' => 2,
+                'file_name' => 'testando 2',
             ]);
         });
     }

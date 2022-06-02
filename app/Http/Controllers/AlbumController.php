@@ -4,15 +4,18 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\AlbumStoreRequest;
 use App\Interfaces\AlbumsRepositoryInterface;
+use App\Services\AlbumService;
 use Illuminate\Http\Request;
 
 class AlbumController extends Controller
 {
     private $albumRepository;
+    private $albumService;
     
-    public function __construct(AlbumsRepositoryInterface $albumRepository)
+    public function __construct(AlbumsRepositoryInterface $albumRepository, AlbumService $albumService)
     {
         $this->albumRepository = $albumRepository;
+        $this->albumService = $albumService;
     }
 
     public function index()
@@ -45,14 +48,14 @@ class AlbumController extends Controller
     {
         $request->validated();
         
-        $this->albumRepository->createAlbum($request->all());
+        $this->albumService->createTrack($request->all());
+
         return redirect()->route('index')->with('success', 'Álbum cadastrado com sucesso!');
     }
 
     public function delete($id)
     {
-        $this->albumRepository->deleteAlbum($id);
-       
+        $this->albumService->deleteTrack($id);
         return redirect()->route('index')->with('success', 'Álbum excluido com sucesso!');
     }
 }

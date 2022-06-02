@@ -36,6 +36,9 @@
                     <td>{{ $track->title }}</td>
                     <td>{{ $track->duration }}</td>
                     <td>
+                        <a href="{{ route('album.track.player',$track->id) }}"class="play-track btn btn-warning" target="_blank">
+                            <i class="fa-solid fa-play"></i>
+                        </a>
                         <button class="btn btn-danger" ata-bs-toggle="tooltip" data-bs-placement="top" title="Excluir Faixa">
                             <i class="fa-solid fa-trash-can"></i>
                         </button>

@@ -16,7 +16,7 @@ class TracksRepository implements TrackRepositoryInterface
     /**
      * Retorna uma faixa específica pelo seu id
      */
-    public function getTrackById(int $track_id)
+    public function getTrackById(int $track_id): Track
     {
         return $this->model->findOrFail($track_id);
     }
@@ -32,9 +32,13 @@ class TracksRepository implements TrackRepositoryInterface
             'number' => $data['number'],
             'title' => $data['title'],
             'duration' => $data['duration'],
+            'file_name' => $data['file_name'],
         ]);
     }
 
+     /**
+     * Exlui uma faixa específica pelo seu id
+     */
     public function deleteTrack(int $track_id)
     {
 

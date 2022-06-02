@@ -4,15 +4,18 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\FormTrackRequest;
 use App\Interfaces\TrackRepositoryInterface;
+use App\Services\TrackService;
 use Illuminate\Http\Request;
 
 class TrackController extends Controller
 {
     private $trackRepository;
+    private $trackService;
 
-    public function __construct(TrackRepositoryInterface $trackRepository)
+    public function __construct(TrackRepositoryInterface $trackRepository, TrackService $trackService)
     {
         $this->trackRepository = $trackRepository;
+        $this->trackService = $trackService;
     }
 
     public function create($album_id)
@@ -23,7 +26,21 @@ class TrackController extends Controller
     public function store(int $album_id, FormTrackRequest $request)
     {
         $request->validated();
-        $this->trackRepository->createTrack($album_id, $request->all());
-        return redirect()->back()->with('success', 'Faixa cadastrada com sucesso!');
+        $this->trackService->createTrack($album_id, $request);
+        return redirect()->route('album.show', $album_id)->with('success', 'Faixa cadastrada com sucesso!');
+    }
+
+    public function playerTrack($id)
+    {
+        $track = $this->trackRepository->getTrackById($id);
+
+        $track_base64 = $this->trackService->getBase64Track(($track));
+        
+        return view('pages.tracks.player', compact('track', 'track_base64'));
+    }
+
+    public function delete($id)
+    {
+        $this->trackService->deleteTrack($id);
     }
 }

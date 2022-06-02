@@ -14,6 +14,7 @@ class Track extends Model
         'album_id',
         'title',
         'duration',
+        'file_name',
     ];
 
     public function album()

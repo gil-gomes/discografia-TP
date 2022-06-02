@@ -27,6 +27,7 @@ Route::name('album.')->prefix('album')->group(function() {
     Route::name('track.')->group(function () {
         Route::get('/{album_id}/cadastrar-faixa', [TrackController::class, 'create'])->name('create');
         Route::post('/{album_id}/track', [TrackController::class, 'store'])->name('store');
+        Route::get('/player/{id}', [TrackController::class, 'playerTrack'])->name('player');
     });
     
 });

@@ -8,7 +8,7 @@
 
     @include('includes.message')
 
-    <form id="form-cad-track" action="{{ route('album.track.store', $album_id) }}" method="POST">
+    <form id="form-cad-track" action="{{ route('album.track.store', $album_id) }}" method="POST" enctype="multipart/form-data">
         @csrf
         @include('includes.form-track')
         <button form="form-cad-track" type="submit" class="btn btn-primary w-100">
