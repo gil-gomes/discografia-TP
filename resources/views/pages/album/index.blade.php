@@ -4,33 +4,11 @@
 
 @section('content')
 
-    <section class="search mx-auto w-100">
+    <section class="mx-auto w-100" id="album-index">
 
         @include('includes.message')
 
-        <header class="search-header d-flex w-100 mb-3">
-            <div class="">
-                <h3>Pesquise por um Álbum</h3>
-            </div>
-
-            <div class="ml-10">
-                <a href="{{ route('album.create') }}" class="btn btn-primary" data-bs-toggle="tooltip" data-toggle="tooltip" title="Adicionar novo Álbum">
-                    <i class="fa-solid fa-plus"></i>
-                </a>
-            </div>
-        </header>
-
-        <form action="{{ route('album.search') }}">
-            <div class="row">
-                <div class="col-8 col-md-9">
-                    <input type="text" class="form-control" name="search" placeholder="Buscar">
-                </div>
-
-                <div class="col-4 col-md-3">
-                    <button type="submit" class="btn btn-primary btn-search w-100">Procurar</button>
-                </div>
-            </div>
-        </form>
+        @include('includes.search-album')
 
         <section class="list-albums mt-5">
             @foreach ($albums as $album)
