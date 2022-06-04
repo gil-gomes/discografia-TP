@@ -14,7 +14,10 @@
                     <span>Gravadora: {{ $album->record_company }}</span>
                 </div>
                 
-                <div class="ml-10">  
+                <div class="ml-10">
+                    <a href="{{ route('album.edit', $album->id)}}"class="btn btn-warning">
+                        <i class="fa-solid fa-pen-to-square"></i>
+                    </a>
                     <button type="button" class="btn btn-danger" data-toggle="modal" data-bs-toggle="modal" data-bs-target="#modal-delete" data-bs-toggle="tooltip"
                     data-bs-placement="top"
                     title="Excluir Álbum">
@@ -24,7 +27,7 @@
                         <form action="{{ route('album.delete', $album->id) }}" method="POST">
                             @csrf
                             @method('delete')
-                            <button type="submit" class="btn btn-danger ml-5">
+                            <button type="submit" class="btn btn-primary ml-5">
                                 Confirmar
                             </button>
                         </form>
@@ -66,10 +69,4 @@
         </div>
 
     @endforeach
-
-    @if ($albums->links())
-    <div class="link-paginate d-flex justify-content-center">
-        {{ $albums->links() }}
-    </div>
-    @endif
 </section>

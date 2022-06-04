@@ -2,19 +2,16 @@
 
 namespace App\Repositories;
 
-use App\Interfaces\AlbumsRepositoryInterface;
+use App\Interfaces\AlbumRepositoryInterface;
 use App\Models\Album;
-use App\Models\Track;
 
-class AlbumsRepository implements AlbumsRepositoryInterface
+class AlbumRepository implements AlbumRepositoryInterface
 {
     private $model;
-    private $trackModel;
 
-    public function __construct(Album $album, Track $track)
+    public function __construct(Album $album)
     {
         $this->model = $album;
-        $this->trackModel = $track;
     }
 
     /**
@@ -22,7 +19,7 @@ class AlbumsRepository implements AlbumsRepositoryInterface
      */
     public function getAllAlbums()
     {
-        return $this->model->with('tracks')->paginate(3);
+        return $this->model->with('tracks')->get();
     }
 
     /**
@@ -49,6 +46,11 @@ class AlbumsRepository implements AlbumsRepositoryInterface
     public function createAlbum(array $data)
     {
         $this->model->create($data);
+    }
+
+    public function updateAlbum(int $album_id, array $data)
+    {
+        return $this->model->find($album_id)->update($data);
     }
 
     /**

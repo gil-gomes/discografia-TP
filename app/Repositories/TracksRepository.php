@@ -41,6 +41,7 @@ class TracksRepository implements TrackRepositoryInterface
      */
     public function deleteTrack(int $track_id)
     {
-
+        return $this->getTrackById($track_id)
+        ->delete($track_id);
     }
 }

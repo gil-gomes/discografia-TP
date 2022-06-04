@@ -6,9 +6,11 @@
 
     <section class="mx-auto w-100" id="album-index">
 
+        @include('includes.message')
+
         @include('includes.search-album')
 
-        @include('components.list-albums')
+        @include('includes.list-albums')
 
     </section>
 @stop

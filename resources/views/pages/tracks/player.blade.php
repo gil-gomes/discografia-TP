@@ -12,9 +12,15 @@
 <body>
     
     <div class="player-content">
-        <audio controls src="data:audio/mpeg;base64,{{$track_base64}}">
-
+        <audio controls>
+            <source src="data:audio/mpeg;base64,{{$track_base64}}"/>
         </audio>
     </div>
+
+    <!--Scripts-->
+    <script src="{{ asset('js/jquery-3.6.0.js')}}"></script>
+    <script src="{{ asset('js/index.js') }}"></script>
+
 </body>
+
 </html>

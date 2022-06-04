@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Facades\Storage;
 
 class Track extends Model
 {
@@ -26,5 +27,14 @@ class Track extends Model
     {
         $duration = strval($value);
         return str_replace(".", ":", $duration);
+    }
+
+    public function getBase64track($track_id)
+    {
+        $track = $this->find($track_id);
+
+        $path = Storage::disk('public')->get('tracks/' . $track->file_name);
+    
+        return base64_encode($path);
     }
 }

@@ -2,23 +2,28 @@
 
 namespace App\Services;
 
-use App\Interfaces\AlbumsRepositoryInterface;
+use App\Interfaces\AlbumRepositoryInterface;
 
 class AlbumService
 {
     private $albumRepository;
     
-    public function __construct(AlbumsRepositoryInterface $albumRepository)
+    public function __construct(AlbumRepositoryInterface $albumRepository)
     {
         $this->albumRepository = $albumRepository;
     }
 
-    public function createTrack(array $data)
+    public function createAlbum(array $data)
     {
         return $this->albumRepository->createAlbum($data);
     }
 
-    public function deleteTrack(int $id)
+    public function updateAlbum(int $album_id, array $data)
+    {
+        return $this->albumRepository->updateAlbum($album_id, $data);
+    }
+
+    public function deleteAlbum(int $id)
     {
         return $this->albumRepository->deleteAlbum($id);
     }

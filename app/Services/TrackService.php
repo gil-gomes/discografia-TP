@@ -4,7 +4,6 @@ namespace App\Services;
 
 use App\Http\Requests\FormTrackRequest;
 use App\Interfaces\TrackRepositoryInterface;
-use App\Models\Track;
 use Exception;
 use Illuminate\Support\Facades\Storage;
 use Ramsey\Uuid\Uuid;
@@ -25,6 +24,7 @@ class TrackService
             $extension = $file->getClientOriginalExtension();
             $file_name = Uuid::uuid4() . '.' . $extension;
             $file->storeAs('public/tracks', $file_name);
+
             $newData = [
                 'number' => $data->number,
                 'title' => $data->title,
@@ -40,12 +40,14 @@ class TrackService
      * Pegar o arquivo de uma determinada faixa
      * @return base64 do arquivo mp3
      */
-    public function getBase64Track(Track $track)
+    public function getBase64Track(int $track_id)
     {
+        $track = $this->trackRepository->getTrackById(($track_id));
+        
         try{
-            $patch = Storage::disk('public')->get('tracks/' . $track->file_name);
+            $path = Storage::disk('public')->get('tracks/' . $track->file_name);
     
-            $track_base64 = base64_encode($patch);
+            $track_base64 = base64_encode($path);
     
             return $track_base64;
             

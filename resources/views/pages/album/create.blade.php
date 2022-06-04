@@ -15,7 +15,7 @@
             <h2>Cadastro de Álbum</h2>
         </header>
 
-        @include('includes.forms.form-album')
+        @include('includes.forms.album.create')
 
         <button type="submit" class="btn btn-primary mb-3 w-100">Cadastrar</button>
     </form>

@@ -12,5 +12,6 @@
 </div>
 <div class="mb-5">
     <label for="track_file" class="form-label">Arquivo</label>
-    <input class="form-control form-control-sm" id="formFileSm" type="file" name="track_file" accept=".mp3">
+    <input class="form-control form-control-sm" id="inputTrack" type="file" name="track_file" accept=".mp3"
+    onchange="test(event)">
 </div>
