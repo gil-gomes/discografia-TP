@@ -12,7 +12,7 @@
          body {
              background-image: url('{{ asset('img/background.png') }}');
              /* background-position: center top; */
-             background-repeat: no-repeat;
+             /* background-repeat: no-repeat; */
              background-size: 100% auto;
              background-attachment: fixed;
          }

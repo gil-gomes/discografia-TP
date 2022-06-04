@@ -14,7 +14,7 @@
     <form action="{{ route('album.search') }}">
         <div class="d-flex justify-content-between">
             <div class="w-90">
-                <input type="text" class="form-control input-search" name="search" placeholder="Busca" onkeydown="btnSearchDisabled()">
+                <input type="text" class="form-control input-search" name="search" placeholder="Busca.." onkeydown="btnSearchDisabled()">
             </div>
 
             <div class="">
