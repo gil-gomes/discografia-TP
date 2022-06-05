@@ -1,25 +1,23 @@
 <section class="list-tracks">
 @if($album->tracks->count() > 0)
 <table class="table table-borderless">
-    <thead class="text-center">
+    <thead>
         <tr>
             <th scope="col">Nº</th>
             <th scope="col">Faixa</th>
             <th scope="col">Duração</th>
-            <th scope="col">Ações</th>
+            <th class="text-center" scope="col">Ações</th>
         </tr>
     </thead>
 
 @foreach ($album->tracks as $track)
 
-    <div class="tracks">
-
-        <tbody class="text-center">
+        <tbody class="">
             <tr>
                 <th scope="row">{{ $track->number }}</th>
                 <td>{{ $track->title }}</td>
                 <td>{{ $track->getDurationFormated($track->duration) }}</td>
-                <td>
+                <td class="text-center">
                     <a href="{{ route('album.track.player',$track->id) }}"class="play-track btn btn-warning" target="_blank">
                         <i class="fa-solid fa-play"></i>
                     </a>
@@ -31,8 +29,6 @@
                 </td>
             </tr>
         </tbody>
-
-    </div>
 
 @endforeach
 

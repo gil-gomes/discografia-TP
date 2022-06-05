@@ -25,7 +25,7 @@ input{
     border-radius: 10px !important;
 }
 
-.ml-10{
+.ml-5{
     margin-left: 5px;
 }
 
@@ -41,6 +41,14 @@ input{
     width: 80%;
 }
 
+.w-80p{
+    width: 80px;
+}
+
 .w-90{
     width: 90%;
+}
+
+.ml-auto{
+    margin-left: auto;
 }

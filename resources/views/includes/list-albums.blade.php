@@ -3,7 +3,7 @@
 
         <div class="album mb-5">
             <div class="d-flex align-items-center justify-content-between">
-                <div class="album-details">
+                <div class="album-details col-8 col-md-10">
                     <a href="{{ route('album.show', $album->id) }}" class="text-dark">
                             <h5>
                                 <strong>
@@ -14,7 +14,7 @@
                     <span>Gravadora: {{ $album->record_company }}</span>
                 </div>
                 
-                <div class="ml-10">
+                <div class="">
                     <a href="{{ route('album.edit', $album->id)}}"class="btn btn-secondary"ata-bs-toggle="tooltip"
                         data-bs-placement="top"
                         title="Editar Álbum">
@@ -32,26 +32,27 @@
             </div>
 
             @if(count($album->tracks) > 0)
-                <table class="table table-borderless">
-                    <thead class="text-center">
-                    <tr>
-                        <th scope="col">Nº</th>
-                        <th scope="col">Faixa</th>
-                        <th scope="col">Duração</th>
-                    </tr>
-                    </thead>
+                <table class="table table-tracks table-borderless">
+                    <thead>
+                        <tr class="d-flex">
+                            <th class="w-80p" scope="col">Nº</th>
+                            <th class="w-80p" class="" scope="col">Faixa</th>
+                            <th class="ml-auto w-80p" scope="col">Duração</th>
+                        </tr>
+                    </thead>     
 
                 @foreach ($album->tracks as $track)
-
-                    <div class="tracks">
-                        <tbody class="text-center">
-                        <tr>
-                            <th scope="row">{{ $track->number }}</th>
-                            <td>{{ $track->title }}</td>
-                            <td>{{ $track->getDurationFormated($track->duration) }}</td>
+                    
+                    <tbody>
+                        <tr class="d-flex">
+                            <th class="w-80p" scope="row">{{ $track->number }}</th>
+                            <td class="w-80p" class="">{{ $track->title }}</td>
+                            <td class="p-2 ml-auto w-80p">{{ $track->getDurationFormated($track->duration) }}</td>
                         </tr>
-                        </tbody>
-                    </div>
+                    </tbody>
+                    <tbody>
+                        
+                    </tbody>
 
                 @endforeach
 
