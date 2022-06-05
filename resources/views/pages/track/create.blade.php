@@ -13,7 +13,7 @@
 
     <form id="form-cad-track" action="{{ route('album.track.store', $album_id) }}" method="POST" enctype="multipart/form-data">
         @csrf
-        @include('includes.forms.form-track')
+        @include('includes.forms.track.create')
         <button form="form-cad-track" type="submit" class="btn btn-primary w-100">
             Salvar
         </button>

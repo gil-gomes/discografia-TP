@@ -19,7 +19,7 @@ class TrackController extends Controller
 
     public function create($album_id)
     {
-        return view('pages.tracks.create', compact('album_id'));
+        return view('pages.track.create', compact('album_id'));
     }
 
     public function store(int $album_id, FormTrackRequest $request)
@@ -29,13 +29,24 @@ class TrackController extends Controller
         return redirect()->route('album.show', $album_id)->with('success', 'Faixa cadastrada com sucesso!');
     }
 
+    public function edit(int $track_id)
+    {
+        $track = $this->trackRepository->getTrackById($track_id);
+        return view('pages.track.edit', compact('track'));
+    }
+
+    public function update(int $track_id, FormTrackRequest $request)
+    {
+        dd($request->all());
+    }
+
     public function playerTrack($track_id)
     {
         $track = $this->trackRepository->getTrackById($track_id);
 
         $track_base64 = $this->trackService->getBase64Track(($track_id));
         
-        return view('pages.tracks.player', compact('track', 'track_base64'));
+        return view('pages.track.player', compact('track', 'track_base64'));
     }
 
     public function delete($album_id, $track_id)

@@ -1,5 +1,5 @@
 <section class="list-albums mt-5">
-    @foreach ($albums as $album)
+    @foreach ($albums as $key => $album)
 
         <div class="album mb-5">
             <div class="d-flex align-items-center justify-content-between">
@@ -15,23 +15,19 @@
                 </div>
                 
                 <div class="ml-10">
-                    <a href="{{ route('album.edit', $album->id)}}"class="btn btn-warning">
+                    <a href="{{ route('album.edit', $album->id)}}"class="btn btn-secondary"ata-bs-toggle="tooltip"
+                        data-bs-placement="top"
+                        title="Editar Álbum">
                         <i class="fa-solid fa-pen-to-square"></i>
                     </a>
-                    <button type="button" class="btn btn-danger" data-toggle="modal" data-bs-toggle="modal" data-bs-target="#modal-delete" data-bs-toggle="tooltip"
+                    <button type="button" class="btn btn-danger" data-toggle="modal" data-bs-toggle="modal" data-bs-target="#delete-album-{{ $album->id }}" data-bs-toggle="tooltip"
                     data-bs-placement="top"
                     title="Excluir Álbum">
                         <i class="fa-solid fa-trash-can"></i>
                     </button>
-                    <x-modals.confirm-action message="Excluir o Álbum {{ $album->name }}">
-                        <form action="{{ route('album.delete', $album->id) }}" method="POST">
-                            @csrf
-                            @method('delete')
-                            <button type="submit" class="btn btn-primary ml-5">
-                                Confirmar
-                            </button>
-                        </form>
-                    </x-modals.confirm-action>
+                    
+                    @include('includes.modals.delete-album')
+                    
                 </div>
             </div>
 
@@ -52,7 +48,7 @@
                         <tr>
                             <th scope="row">{{ $track->number }}</th>
                             <td>{{ $track->title }}</td>
-                            <td>{{ $track->duration }}</td>
+                            <td>{{ $track->getDurationFormated($track->duration) }}</td>
                         </tr>
                         </tbody>
                     </div>

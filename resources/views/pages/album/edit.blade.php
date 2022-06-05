@@ -1,6 +1,6 @@
 @extends('layouts.app')
 
-@section('title', 'Cadastrar Álbum')
+@section('title', 'Atualizar Álbum')
 
 @section('content')
 
@@ -8,13 +8,13 @@
 
     @include('includes.message')
 
+    <header class="text-center mb-5">
+        <h2>Editar Álbum {{ $album->name }}</h2>
+    </header>
+
     <form action="{{route('album.update', $album->id)}}" method="POST">
         @method('PUT')
         @csrf
-
-        <header class="text-center mb-5">
-            <h2>Editar Álbum {{ $album->name }}</h2>
-        </header>
 
         @include('includes.forms.album.edit')
 
